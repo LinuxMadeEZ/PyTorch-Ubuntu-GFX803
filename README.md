@@ -24,7 +24,7 @@ wget https://repo.radeon.com/rocm/rocm.gpg.key -O - | gpg --dearmor | sudo tee /
 Add AMDGPU repo:
 
 ```
-echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/rocm.gpg] https://repo.radeon.com/amdgpu/6.1.2/ubuntu jammy main" | sudo tee /etc/apt/sources.list.d/amdgpu.list
+echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/rocm.gpg] https://repo.radeon.com/amdgpu/6.2/ubuntu jammy main" | sudo tee /etc/apt/sources.list.d/amdgpu.list
 ```
 
 
@@ -42,7 +42,7 @@ echo -e 'Package: *\nPin: release o=repo.radeon.com\nPin-Priority: 600' | sudo t
 
 ## AMDGPU and ROCm Packges
 
-AMDGPU and other necessary packages:
+AMDGPU and other necessary packages(You may need to run "sudo apt update" first):
 ```
 sudo apt install amdgpu-dkms google-perftools python3-virtualenv python3-pip python3.10-venv git
 ```
@@ -66,12 +66,17 @@ sudo ldconfig
 export PATH=$PATH:/opt/rocm-5.7.3/bin
 ```
 
-## Get Stable Diffusion
+## Get Stable Diffusion WebUI
 ```
 git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git
 ```
 
-## Options for low-vram
+## Options for low-vram(WebUI)
 ```
 --precision full --no-half --lowvram --opt-split-attention-v1 --upcast-sampling
+```
+
+## Get ComfyUI
+```
+git clone https://github.com/comfyanonymous/ComfyUI.git
 ```
