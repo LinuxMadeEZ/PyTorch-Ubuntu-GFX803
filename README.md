@@ -24,7 +24,7 @@ wget https://repo.radeon.com/rocm/rocm.gpg.key -O - | gpg --dearmor | sudo tee /
 Add AMDGPU repo:
 
 ```
-echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/rocm.gpg] https://repo.radeon.com/amdgpu/6.2/ubuntu jammy main" | sudo tee /etc/apt/sources.list.d/amdgpu.list
+echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/rocm.gpg] https://repo.radeon.com/amdgpu/6.2.2/ubuntu jammy main" | sudo tee /etc/apt/sources.list.d/amdgpu.list
 ```
 
 
@@ -42,9 +42,9 @@ echo -e 'Package: *\nPin: release o=repo.radeon.com\nPin-Priority: 600' | sudo t
 
 ## AMDGPU and ROCm Packges
 
-AMDGPU and other necessary packages(You may need to run "sudo apt update" first):
+AMDGPU and other necessary packages:
 ```
-sudo apt install amdgpu-dkms google-perftools python3-virtualenv python3-pip python3.10-venv git
+sudo apt update && sudo apt install amdgpu-dkms google-perftools python3-virtualenv python3-pip python3.10-venv git
 ```
 
 ROCm packages:
